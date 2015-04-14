@@ -17,13 +17,16 @@ function sort() {
 
   for (var i = 0, j, temp; i < ppl.length; ++i) {
     var temp = ppl[i];
-
+    alert('pause');
     for (j = (i - 1); j >= 0 && ppl[j] > temp; --j) {
+
+      $('#' + temp).fadeOut(50);
       ppl[j + 1] = ppl[j];
       $('#' + temp).insertBefore('#' + ppl[j + 1]);
-      // alert('pause');
+
     }
   ppl[j + 1] = temp;
+  $('#' + temp).fadeIn(50);
   }
 }
 
@@ -50,8 +53,8 @@ function shuffle() {
   for (var i = 0; i < display.length; i++ ) {
     console.log(display[i]);
   var displayCode = '<img src="img/ppl/' + display[i] + '.jpg" id="' + display[i] + '">';
-  $('#sidewalk').html(displayCode);
-  alert('pause');
+  $('#sidewalk').append(displayCode);
+  // alert('pause');
   }
 }
 
