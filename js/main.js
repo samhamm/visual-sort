@@ -1,38 +1,64 @@
-// Hard-wired version of the sidewalk in var people
-var people = [31, 23, 26, 29, 36, 42, 34, 24, 28, 25, 32, 38, 27, 40, 37, 33, 41, 35, 30, 39];
+//Fill array of img IDs from DOM
 
-var fors = people.length;
+function people() {
+  var peopleArr = [];
+  $("#sidewalk")
+    .find("img")
+    .each(function(){
+      peopleArr.push(this.id);
+    // console.log(peopleStr);
+    });
+    return peopleArr;
+}
 
-function sort(people) {
-  // Should convert to the 'each' iterator for this recursive stuff...
-  for (var i = 0, j, temp; i < fors; ++i) {
+function sort() {
+  var ppl = people();
+  console.log(ppl);
 
-    console.log(""); console.log("i = " + i); console.log(people);
+  for (var i = 0, j, temp; i < ppl.length; ++i) {
+    var temp = ppl[i];
 
-    var j = i - 1;
-    var temp = people[i];
-
-    console.log("The person initiating the sort is at position " + i + ", with value " + people[i] + ".");
-
-    console.log("If " + people[i] + " has a greater number that of the person to our left, " + people[j] + ", s/he remains in place; else, they swap spots.");
-
-    for (j = (i - 1); j >= 0 && people[j] > temp; --j) {
-      people[j + 1] = people[j];
-      $('#' + temp).insertBefore('#' + people[j + 1]);
-
-      // function visualize(){
-      //   $('#' + temp).insertBefore('#' + people[j + 1]);
-      //   setTimeout(visualize, 100);
-      // }
-      // setTimeout(visualize, 100);
-      // visualize();
-
-      console.log(temp + " is less than " + people[j + 1] + ": so " + temp + " moves into position " + j + " and " + people[j + 1] + " moves into position " + (j + 1));
+    for (j = (i - 1); j >= 0 && ppl[j] > temp; --j) {
+      ppl[j + 1] = ppl[j];
+      $('#' + temp).insertBefore('#' + ppl[j + 1]);
+      // alert('pause');
     }
-  people[j + 1] = temp;
+  ppl[j + 1] = temp;
   }
 }
 
-$(document).click(function() {
-  $('#sortButton').click(sort(people));
+function shuffle() {
+  console.log('SHUFFLE');
+  var toShuffle = people();
+
+  var shuffled = function() {
+    var m = toShuffle.length, t, i;
+    // While there remain elements to shuffle…
+    while (m) {
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+      // And swap it with the current element.
+      t = toShuffle[m];
+      toShuffle[m] = toShuffle[i];
+      toShuffle[i] = t;
+    }
+    return toShuffle;
+  };
+  var display = shuffled();
+  console.log('New order is ' + display);
+  $('#sidewalk').empty();
+  for (var i = 0; i < display.length; i++ ) {
+    console.log(display[i]);
+  var displayCode = '<img src="img/ppl/' + display[i] + '.jpg" id="' + display[i] + '">';
+  $('#sidewalk').html(displayCode);
+  alert('pause');
+  }
+}
+
+$('#sortButton').click(function() {
+  $('#sortButton').click(sort());
+});
+
+$('#shuffleButton').click(function() {
+  $('#shuffleButton').click(shuffle());
 });
