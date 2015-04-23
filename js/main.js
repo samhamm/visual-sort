@@ -6,7 +6,6 @@ function people() {
     .find("img")
     .each(function(){
       peopleArr.push(this.id);
-    // console.log(peopleStr);
     });
     return peopleArr;
 }
@@ -17,7 +16,6 @@ function sort() {
 
   for (var i = 0, j, temp; i < ppl.length; ++i) {
     var temp = ppl[i];
-    alert('pause');
     for (j = (i - 1); j >= 0 && ppl[j] > temp; --j) {
 
       $('#' + temp).fadeOut(50);
@@ -54,7 +52,6 @@ function shuffle() {
     console.log(display[i]);
   var displayCode = '<img src="img/ppl/' + display[i] + '.jpg" id="' + display[i] + '">';
   $('#sidewalk').append(displayCode);
-  // alert('pause');
   }
 }
 
