@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D-Jung Sort: Saving SLU eardrums since 2014</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h1>D-Jung Sort: Bringing order to sidewalk chaos.</h1>
+    <img src="img/djung.jpg">
+    <h3>Monday, Wednesday, and Friday, this is the scene on the sidewalk in front of <a href="http://www.codefellows.org">Code Fellows</a>.<h3>
+
+    <div id="sidewalk">
+        <img src="img/ppl/31.jpg" id="31">
+        <img src="img/ppl/23.jpg" id="23">
+        <img src="img/ppl/26.jpg" id="26">
+        <img src="img/ppl/29.jpg" id="29">
+        <img src="img/ppl/36.jpg" id="36">
+        <img src="img/ppl/42.jpg" id="42">
+        <img src="img/ppl/34.jpg" id="34">
+        <img src="img/ppl/24.jpg" id="24">
+        <img src="img/ppl/28.jpg" id="28">
+        <img src="img/ppl/25.jpg" id="25">
+        <img src="img/ppl/32.jpg" id="32">
+        <img src="img/ppl/38.jpg" id="38">
+        <img src="img/ppl/27.jpg" id="27">
+        <img src="img/ppl/40.jpg" id="40">
+        <img src="img/ppl/37.jpg" id="37">
+        <img src="img/ppl/33.jpg" id="33">
+        <img src="img/ppl/41.jpg" id="41">
+        <img src="img/ppl/35.jpg" id="35">
+        <img src="img/ppl/30.jpg" id="30">
+        <img src="img/ppl/39.jpg" id="39">
+    </div>
+
+    <p>Problem: Numbers are all mixed up and the shrill Thai lady in the <a href="https://www.facebook.com/djungfood">D-Jung on Wheels</a> truck does not know which direction to yell when an order is ready, so she yells as loud as she can, ruining her voice AND destroying the eardrums of everyone.</p>
+
+    <p>If the order number cards range between 23 and 42, she could yell to the left (a number in the 20s) or right (a number in the 30s or 40s) when a customer's delicious Pad Kee Mao or Thai iced tea is ready. A sorted sidewalk would make her life easier and the rest of us a lot less jumpy.</p>
+
+    <p>Let's fix this mess with an ineffecient, yet naturally human, INSERTION SORT:
+
+    <ul>
+      <li>Starting at the far left, a comparator position moves one spot to the right on each sort sequence.</li>
+      <li>In that sequence, if that person compares her/his number to the one at her/his right, or our left.</li>
+      <li>If the comparator's number is greater, the two stay in position.</li>
+      <li>If the comparator's number is lower, they switch positions and the comparator then tests against the next person in line in the same way until reaching a position where s/he is properly positioned (so far). The sort sequence then restarts at the next spot down the line.</li>
+    </ul>
+
+    <p class="blue">Hit the 'SORT' button to see the magic happen:</p>
+    <button id="sortButton">SORT</button>
+
+        <p class="blue">Hit the 'SHUFFLE' button to randomize the people:</p>
+    <button id="shuffleButton">SHUFFLE</button>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
